@@ -19,6 +19,10 @@ links:
   Code, Lean, paper: https://github.com/g8r-b8/erdos132-lean
 ---
 
+> **Update (24 September 2026).** This bound has been improved to \\(L \le 15/11 \approx 1.364\\). See
+> [An upper bound of 15/11]({{ site.baseurl }}{% post_url 2026-09-24-an-upper-bound-of-15-11-for-second-largest-and-minimum-distances %}).
+> The 54/37 theorem below is still the one that is fully formalised in Lean. The 15/11 proof is not yet formalised.
+
 ## Background
 
 [Erdős Problem #132](https://www.erdosproblems.com/132) asks whether, for every set of \\(n\\) points in the plane,
