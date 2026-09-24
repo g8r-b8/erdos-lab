@@ -2,7 +2,7 @@
 layout: post
 title: "An upper bound of 15/11 for second-largest and minimum distances"
 problem: 132
-status: new result
+status: formalised
 impact: major
 summary: >-
   Every planar n-point set has min{μ(Δ₂), μ(δ)} ≤ (15/11)n + C₀, and ≤ (4/3)n + C₀ in one regime. This
@@ -18,7 +18,7 @@ verification:
   Internal referee passes: "independent passes on each step (Region II; Region III, with two passes on the exact case τ = √3/2; the R-point lemma); no mathematical gap found, only presentation fixes"
   Exact arithmetic: "all constants and LP certificates checked in exact rationals (Python Fractions, rigorous bounds for trig functions)"
   Numerics: "adversarial searches against the key lemmas, 0 violations; consistency with ienjoymath's construction checked for n = 60, 120, 250"
-  Lean 4 / Mathlib: "NOT formalised for 15/11. The earlier bound 54/37 is fully formalised; a 15/11 formalisation is in progress"
+  Lean 4 / Mathlib: "Updated 2026-09-24: fully formalised (erdos132_main15, sorry-free; axioms propext, Classical.choice, Quot.sound; leanchecker passes). The Region II refinement 4/3 is not formalised."
   Human expert review: "not yet"
   Novelty check: "2026-09-24: #132 forum thread (latest comment 25 Jul 2026, no upper bound below 3/2 claimed), arXiv search (CDL 2505.04283 still v5; no other paper on the problem)"
 links:
@@ -112,3 +112,5 @@ and there \\(\mu(\Delta_2) \le n + 1\\).
 - **Problem #132 itself.** This is a partial result, not a solution.
 
 Corrections are welcome in the comments below.
+
+**Update (2026-09-24).** The 15/11 bound is now fully formalised in Lean 4 with Mathlib. The theorem `Erdos132Main.erdos132_main15` states that for every finite planar set $$X$$ with at least two points, $$\min\{\mu(\Delta_2),\mu(\delta)\} \le \tfrac{15}{11}\lvert X\rvert + C_0$$ for some constant $$C_0$$. It has no `sorry`, and `#print axioms` reports only `propext`, `Classical.choice` and `Quot.sound`; `leanchecker` re-checks all six modules. The formal proof differs from the written one in a few places (a Euclidean-local version of the neighbour bound, a slots-and-breaks count in Region III, and an exact reflection argument for Lemma C); these are described in the repository README. The refinement to 4/3 in Region II is not formalised. Code: [`Erdos132/E132Main15*.lean`](https://github.com/g8r-b8/erdos132-lean/tree/main/Erdos132).
