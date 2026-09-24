@@ -1,0 +1,74 @@
+:root {
+  --bg: #fbfaf7; --fg: #1d1c1a; --muted: #6b675f; --rule: #e4e0d8;
+  --accent: #8a3b12; --panel: #f3f0e9; --code: #efebe3;
+  --ok: #2f6b3a; --partial: #8a6412;
+  --serif: "Source Serif 4", Georgia, serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161514; --fg: #e8e5df; --muted: #9c978d; --rule: #2e2c29;
+    --accent: #e0915f; --panel: #1f1e1c; --code: #24231f; --ok: #7fbf8a; --partial: #d9b25e;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161514; --fg: #e8e5df; --muted: #9c978d; --rule: #2e2c29;
+  --accent: #e0915f; --panel: #1f1e1c; --code: #24231f; --ok: #7fbf8a; --partial: #d9b25e;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 18px/1.65 var(--serif); font-optical-sizing: auto;
+}
+header.site, main, footer.site { max-width: 42rem; margin: 0 auto; padding: 0 16px; }
+header.site { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .5rem;
+  padding-top: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+.brand { font-weight: 600; font-size: 1.15rem; color: var(--fg); text-decoration: none; letter-spacing: .01em; }
+nav a { margin-left: 1rem; color: var(--muted); text-decoration: none; font-size: .9rem; }
+nav a:first-child { margin-left: 0; }
+nav a:hover, .brand:hover { color: var(--accent); }
+main { padding-top: 2rem; padding-bottom: 3rem; min-height: 60vh; }
+a { color: var(--accent); text-underline-offset: 2px; }
+h1, h2, h3 { line-height: 1.25; font-weight: 600; }
+h1 { font-size: 1.9rem; margin: .2rem 0 .5rem; }
+h2 { font-size: 1.3rem; margin-top: 2.2rem; }
+h3 { font-size: 1.1rem; margin-top: 1.6rem; }
+code, pre { font-family: var(--mono); font-size: .82em; }
+code { background: var(--code); padding: .08em .3em; border-radius: 3px; }
+pre { background: var(--code); padding: .9rem 1rem; overflow-x: auto; border-radius: 4px; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+blockquote { margin: 1.2rem 0; padding-left: 1rem; border-left: 3px solid var(--rule); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; font-size: .92rem; }
+th, td { border-bottom: 1px solid var(--rule); padding: .4rem .6rem; text-align: left; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: .2rem 0; }
+img { max-width: 100%; }
+
+.kicker { margin: 0; font-size: .82rem; color: var(--muted); letter-spacing: .03em; text-transform: uppercase; }
+.meta { color: var(--muted); font-size: .92rem; margin: 0 0 1.5rem; }
+.status { font-weight: 600; }
+.status-new-result, .status-formalised { color: var(--ok); }
+.status-partial-result, .status-partial { color: var(--partial); }
+
+.intro p { color: var(--muted); margin-top: 0; }
+.posts { list-style: none; padding: 0; margin: 2rem 0 0; }
+.posts li { padding: 1.2rem 0; border-top: 1px solid var(--rule); }
+.posts h2 { margin: .2rem 0 .3rem; font-size: 1.25rem; }
+.posts h2 a { color: var(--fg); text-decoration: none; }
+.posts h2 a:hover { color: var(--accent); }
+.summary { margin: 0; color: var(--muted); font-size: .95rem; }
+.empty { color: var(--muted); font-style: italic; }
+
+.result { background: var(--panel); border-left: 3px solid var(--accent); padding: 1rem 1.2rem; margin: 0 0 2rem; border-radius: 0 4px 4px 0; }
+.result .label { margin: 0 0 .3rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.result > div p { margin: .3rem 0; }
+.result dl { display: grid; grid-template-columns: max-content 1fr; gap: .25rem 1rem; margin: .9rem 0 0; font-size: .88rem; }
+.result dt { color: var(--muted); }
+.result dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 480px) { .result dl { grid-template-columns: 1fr; } .result dd { margin-bottom: .4rem; } }
+.problem-link { margin-top: 2.5rem; font-size: .9rem; color: var(--muted); }
+
+footer.site { border-top: 1px solid var(--rule); padding-top: 1.2rem; padding-bottom: 2.5rem; font-size: .82rem; color: var(--muted); }
+footer.site p { margin: .3rem 0; }
+footer.site a { color: var(--muted); }
+.comments { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }

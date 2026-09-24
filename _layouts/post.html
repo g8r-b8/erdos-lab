@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<article class="post">
+  <header>
+    {% if page.problem %}<p class="kicker">Erdős Problem #{{ page.problem }}{% if page.status %} · <span class="status status-{{ page.status | slugify }}">{{ page.status }}</span>{% endif %}</p>{% endif %}
+    <h1>{{ page.title }}</h1>
+    <p class="meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%-d %B %Y" }}</time> · {{ site.author }}</p>
+  </header>
+
+  {% if page.result %}
+  <aside class="result">
+    <p class="label">Result</p>
+    <div>{{ page.result | markdownify }}</div>
+    {% if page.verification or page.links %}
+    <dl>
+      {% for v in page.verification %}<dt>{{ v[0] }}</dt><dd>{{ v[1] | markdownify | remove: '<p>' | remove: '</p>' }}</dd>{% endfor %}
+      {% for l in page.links %}<dt>{{ l[0] }}</dt><dd><a href="{{ l[1] }}">{{ l[1] | remove: 'https://' }}</a></dd>{% endfor %}
+    </dl>
+    {% endif %}
+  </aside>
+  {% endif %}
+
+  <div class="body">
+  {{ content }}
+  </div>
+
+  {% if page.problem %}
+  <p class="problem-link">Problem page: <a href="https://www.erdosproblems.com/{{ page.problem }}">erdosproblems.com/{{ page.problem }}</a></p>
+  {% endif %}
+</article>
+{% if site.giscus.repo_id %}{% include comments.html %}{% endif %}

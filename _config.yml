@@ -1,0 +1,29 @@
+title: Erdős Lab
+description: New results on open Erdős problems, with proofs, formalisations and certificates.
+author: Wingate Jones
+# Set to "" if published as the user site g8r-b8.github.io; "/<repo>" for a project site.
+url: "https://g8r-b8.github.io"
+baseurl: "/erdos-lab"
+github: g8r-b8
+lang: en
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax   # emits \( \) / \[ \]; rendered client-side by KaTeX
+  input: GFM
+  syntax_highlighter_opts:
+    disable: true
+
+permalink: /:year/:month/:title/
+plugins:
+  - jekyll-feed
+
+exclude: [README.md, scripts, Gemfile, Gemfile.lock, vendor]
+
+# Comments: giscus (GitHub Discussions, "Announcements" category → only the author starts threads,
+# anyone with a GitHub account can comment).
+giscus:
+  repo: g8r-b8/erdos-lab
+  repo_id: R_kgDOUpdXQg
+  category: Announcements
+  category_id: DIC_kwDOUpdXQs4DGTgJ

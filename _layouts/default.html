@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+{% include head.html %}
+</head>
+<body>
+<header class="site">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  <nav>
+    <a href="{{ '/' | relative_url }}">Posts</a>
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+  </nav>
+</header>
+<main>
+{{ content }}
+</main>
+<footer class="site">
+  <p>© {{ 'now' | date: '%Y' }} {{ site.author }}. Corrections welcome via <a href="https://github.com/{{ site.github }}">GitHub</a>.</p>
+  <p class="disclosure">The author used an AI assistant (Claude, Anthropic) for exploration, computation, formalisation and drafting.</p>
+</footer>
+</body>
+</html>

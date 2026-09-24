@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<section class="intro">
+  <p>{{ site.description }} Each post states what is proved, how it was checked, and what is still open.</p>
+</section>
+
+{% if site.posts.size > 0 %}
+<ol class="posts">
+  {% for post in site.posts %}
+  <li>
+    <p class="kicker">{% if post.problem %}#{{ post.problem }} · {% endif %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>{% if post.status %} · <span class="status status-{{ post.status | slugify }}">{{ post.status }}</span>{% endif %}</p>
+    <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+    {% if post.summary %}<p class="summary">{{ post.summary }}</p>{% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<p class="empty">No results posted yet.</p>
+{% endif %}
