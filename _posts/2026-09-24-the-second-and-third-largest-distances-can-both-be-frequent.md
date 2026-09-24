@@ -21,7 +21,7 @@ verification:
   Localisation lemma: "written proof; checked exactly on 20,507 random grid instances with 0 failures; the cases j = 1, 2 are formalised in Lean, the general lemma is not"
   Conjecture: "computer search only: about 3,500 sets with μ₂ > n, and none had μ₂, μ₃, μ₄ all > n; not a proof"
   Lean: "not formalised"
-  Scripts: "r5_verify_n8.py, r5_c_exact.py; not yet in the public repository"
+  Scripts: "r5_verify_n8.py, r5_c_exact.py in the scripts/ folder of the code repository (added 2026-09-24)"
   Human expert review: "not yet"
   Novelty check: "2026-09-24: #132 forum thread (5 comments, none on Δ₃), Clemen–Dumitrescu–Liu arXiv:2505.04283 (treats Δ₂ and δ, not Δ₃), arXiv searches; earlier audits 2026-09-23 (page, sibling problems, GitHub)"
 links:
@@ -146,3 +146,5 @@ Each such step lowers the depth sum by 1 and strictly increases the distance. Re
   the distance spectrum.
 - Does the \\(6/5\\) family work for every odd \\(m\\)? Can 7 points already have \\(\mu_2, \mu_3 > n\\)?
 - Problem #132 itself. This is a partial result, not a solution. Corrections are welcome in the comments below.
+
+**Update (2026-09-24).** The verification scripts `r5_verify_n8.py` and `r5_c_exact.py` are now in the public code repository, under `scripts/`.
