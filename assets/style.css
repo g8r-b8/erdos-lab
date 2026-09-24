@@ -72,3 +72,6 @@ footer.site { border-top: 1px solid var(--rule); padding-top: 1.2rem; padding-bo
 footer.site p { margin: .3rem 0; }
 footer.site a { color: var(--muted); }
 .comments { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }
+
+/* impact tiers on the index */
+h2.tier { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin: 2.2rem 0 0.4rem; border-bottom: 1px solid currentColor; padding-bottom: 0.25rem; }

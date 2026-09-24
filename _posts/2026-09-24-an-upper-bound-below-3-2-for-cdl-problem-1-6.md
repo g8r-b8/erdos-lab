@@ -3,6 +3,7 @@ layout: post
 title: "An upper bound below 3/2 for second-largest and minimum distances"
 problem: 132
 status: new result
+impact: major
 summary: >-
   Every planar n-point set has min{μ(Δ₂), μ(δ)} ≤ (54/37)n + C₀, improving the bound 3/2 from
   Vesztergombi's inequality. The theorem is fully formalised in Lean 4 with Mathlib.

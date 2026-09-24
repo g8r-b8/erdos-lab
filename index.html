@@ -6,8 +6,15 @@ layout: default
 </section>
 
 {% if site.posts.size > 0 %}
+{% assign tiers = "major|Main results,notable|Further results,note|Notes and examples" | split: "," %}
+{% for t in tiers %}
+{% assign key = t | split: "|" | first %}{% assign label = t | split: "|" | last %}
+{% assign tier_posts = "" | split: "" %}
+{% for post in site.posts %}{% assign imp = post.impact | default: "notable" %}{% if imp == key %}{% assign tier_posts = tier_posts | push: post %}{% endif %}{% endfor %}
+{% if tier_posts.size > 0 %}
+<h2 class="tier">{{ label }}</h2>
 <ol class="posts">
-  {% for post in site.posts %}
+  {% for post in tier_posts %}
   <li>
     <p class="kicker">{% if post.problem %}#{{ post.problem }} · {% endif %}<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>{% if post.status %} · <span class="status status-{{ post.status | slugify }}">{{ post.status }}</span>{% endif %}</p>
     <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
@@ -15,6 +22,8 @@ layout: default
   </li>
   {% endfor %}
 </ol>
+{% endif %}
+{% endfor %}
 {% else %}
 <p class="empty">No results posted yet.</p>
 {% endif %}

@@ -10,7 +10,8 @@ scripts/new-post.sh 132 "Short title of the result"   # creates _drafts/<slug>.m
 git mv _drafts/<slug>.md _posts/YYYY-MM-DD-<slug>.md && git commit -m "post: <title>" && git push
 ```
 
-Front matter: `problem`, `status` (`new result` | `partial result` | `formalised`), `summary`, `result`
+Front matter: `problem`, `status`, `impact` (`major` | `notable` | `note`; groups the index into
+Main results / Further results / Notes and examples; default `notable`), (`new result` | `partial result` | `formalised`), `summary`, `result`
 (the precise statement; math as `$$...$$`; write `\lvert X\rvert`, not `|X|`, or GFM parses a table), `verification` (map of check → outcome), `links`.
 Body math: `$$...$$` inline or on its own line for display (kramdown → KaTeX).
 
