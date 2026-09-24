@@ -16,7 +16,7 @@ status: partial result        # new result | partial result | formalised
 summary: >-
   One or two sentences for the index and link previews.
 result: >-
-  The precise statement; inline math as $$...$$ (kramdown turns it into \\( \\)).
+  The precise statement; inline math as \$\$...\$\$ (write \\lvert X\\rvert, not pipes).
 verification:
   Lean: "sorry-free; axioms: propext, Classical.choice, Quot.sound"
   Novelty check: "YYYY-MM-DD: forum thread, related problems, arXiv"
