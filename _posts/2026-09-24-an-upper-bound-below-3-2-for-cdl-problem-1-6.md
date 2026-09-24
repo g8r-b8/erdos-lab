@@ -7,7 +7,7 @@ summary: >-
   Every planar n-point set has min{μ(Δ₂), μ(δ)} ≤ (54/37)n + C₀, improving the bound 3/2 from
   Vesztergombi's inequality. The theorem is fully formalised in Lean 4 with Mathlib.
 result: >-
-  For every finite $$X \subset \mathbb{R}^2$$ with $$|X| = n$$,
+  For every finite $$X \subset \mathbb{R}^2$$ with $$\lvert X\rvert = n$$,
   $$\min\{\mu(\Delta_2), \mu(\delta)\} \le \tfrac{54}{37}\,n + C_0$$ for an absolute constant $$C_0$$.
   Hence $$L \le 54/37 \approx 1.4595$$ in Problem 1.6 of Clemen–Dumitrescu–Liu.
 verification:

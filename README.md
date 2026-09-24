@@ -11,7 +11,7 @@ git mv _drafts/<slug>.md _posts/YYYY-MM-DD-<slug>.md && git commit -m "post: <ti
 ```
 
 Front matter: `problem`, `status` (`new result` | `partial result` | `formalised`), `summary`, `result`
-(the precise statement; math as `$$...$$`), `verification` (map of check → outcome), `links`.
+(the precise statement; math as `$$...$$`; write `\lvert X\rvert`, not `|X|`, or GFM parses a table), `verification` (map of check → outcome), `links`.
 Body math: `$$...$$` inline or on its own line for display (kramdown → KaTeX).
 
 Rules for posts:
