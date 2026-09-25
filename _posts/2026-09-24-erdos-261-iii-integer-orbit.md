@@ -8,13 +8,13 @@ summary: >-
   representations reduces to whether one integer sequence returns to 1 infinitely often. For x = 1 it
   returns 15 times up to 2·10¹⁰, the last time at 5,145,362,668.
 result: >-
-  Claim (sketch): for dyadic $$x$$ the number of infinite, non-cofinite representations
+  Proved 2026-09-25 (was a sketch; see the Update): for dyadic $$x$$ the number of infinite, non-cofinite representations
   $$x = \sum_{a\in A} a/2^a$$ is $$2^{R}$$, where $$R$$ is the number of levels $$L$$ with $$e_L = 1$$ for
   $$e_{L+1} = \min(2e_L,\ L+2-2e_L)$$. So $$x$$ has $$2^{\aleph_0}$$ representations iff this orbit returns to 1
   infinitely often. For $$x=1$$ ($$e_2 = 1$$) the returns up to $$2\cdot 10^{10}$$ are at L = 2, 4, 80, 236, 432,
   1504, 2944, 6060, 6620, 18912, 54224, 302467996, 1772665632, 2148845168, 5145362668.
 verification:
-  Written proof: "sketch only (below); not written up rigorously"
+  Written proof: "complete elementary proof added 2026-09-25 (Update, below); originally a sketch"
   Brute-force check: "exact DP over all partial representations of x = 1 up to a = 1600: live-branch count doubles exactly at L = 2, 4, 80, 236, 432, 1504"
   Orbit computation: "C, 64-bit integers, to L = 2·10¹⁰; reproduced independently 2026-09-24"
   Lean: "none"
@@ -25,6 +25,43 @@ links:
   Formal statement: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/261.lean
   Tengely–Ulas–Zygadło (2020): https://arxiv.org/abs/2008.01501
 ---
+
+> **Update (2026-09-25).** The reduction is now proved. Below, the post originally said it was a sketch and
+> that no rigorous proof existed. A proof follows, and it also corrects one imprecision: for a general dyadic
+> $$x$$ there can be several orbits, not one. The numbers are unchanged.
+
+## Proof of the reduction (added 2026-09-25)
+
+Use $$s_a$$ and the window from the next sections. Assume all $$s_a$$ are integers. For $$x = 1$$ this holds
+from $$a = 1$$ on, and for $$x = m/2^k$$ it holds from $$a = k$$ on. Write $$u_a = \min(s_a,\, 2a+2-s_a)$$ for the
+distance to the nearer end of $$[0, 2a+2]$$, and $$v_a = a+1-u_a$$ for the distance to the centre $$a+1$$.
+
+1. **Forced moves.** If $$u_a < a$$, exactly one move is possible, and in both mirror cases it gives
+   $$u_{a+1} = \min(2u_a,\, 2a+4-2u_a)$$.
+2. **Edge of the window** ($$u_a = a$$, so $$s_a \in \{a, a+2\}$$). One move lands on $$0$$ or $$2a+4$$, which
+   makes $$A$$ finite or cofinite. The other move gives $$u_{a+1} = 4 = \min(2a,\, 4)$$ for $$a\ge2$$, so the
+   same formula holds.
+3. **Centre** ($$u_a = a+1$$). Both moves are live and give $$s_{a+1} \in \{2,\, 2a+2\}$$. These two states
+   mirror each other and both have $$u_{a+1} = 2$$, which again matches the formula.
+4. **No live branch dies.** If $$u_a \ge 1$$, then $$u_{a+1} \ge 2$$. The step commutes with
+   $$s \mapsto 2a+2-s$$, so mirror branches keep the same $$u$$.
+
+So every live branch follows the same deterministic orbit. In terms of $$v$$ it reads
+$$v_{a+1} = \lvert a - 2v_a\rvert$$. Each branch splits into two live branches exactly when $$v_a = 0$$. An
+infinite, non-cofinite $$A$$ is the same thing as an infinite path that never reaches $$0$$ or $$2a+2$$. So
+**the infinite, non-cofinite representations number $$2^{R}$$ with $$R = \#\{a : v_a = 0\}$$, or
+$$2^{\aleph_0}$$ if $$R = \infty$$.** For a general dyadic $$x$$, finitely many integer states survive at
+$$a = k$$, and each has its own orbit. So $$x$$ has continuum-many representations iff one of those orbits
+hits $$0$$ infinitely often. For $$x = 1$$, $$s_1 = 2$$ is the centre, so there is a single orbit with
+$$v_1 = 0$$.
+
+The $$e$$-sequence below is the same orbit folded once more. Put $$e_{a+1} = \min(v_a+1,\ a+1-v_a)$$ and
+$$t = a - 2v_a$$. Then $$L+2-2e_L = \lvert t\rvert+1$$ with $$L = a+1$$, and
+$$e_{L+1} = \min(2e_L,\, L+2-2e_L)$$ follows by checking the cases $$t \ge 0$$ and $$t < 0$$.
+Here $$e_L = 1$$ iff $$v_a = 0$$, because $$u_a = 1$$ is impossible for $$a \ge 2$$. A direct run of
+$$v_{a+1} = \lvert a-2v_a\rvert$$ from $$v_1 = 0$$ to $$a = 2\cdot10^{10}$$ gives zeros at
+$$a = L-1$$ for exactly the $$L$$ listed below. Separately, $$e = \min(v+1, a+1-v)$$ was checked numerically
+for the first $$3\cdot10^6$$ terms.
 
 ## The question
 
@@ -71,7 +108,7 @@ $$
 
 The number of branches doubles exactly when $$e_L = 1$$. So the number of infinite, non-cofinite
 representations is $$2^{\#\{L : e_L = 1\}}$$. **Hence $$x$$ has continuum-many representations iff the orbit
-returns to 1 infinitely often.** This is a sketch. The claim that live branches never die, only merge onto
+returns to 1 infinitely often.** This is a sketch (proved in the Update above). The claim that live branches never die, only merge onto
 the canonical orbit, is checked numerically (below) but not yet written up as a proof.
 
 For $$x = 1$$ the orbit starts at $$e_2 = 1$$ and returns at
@@ -93,7 +130,7 @@ same trunk.
   1, 2, 4, 8, 16, 32, 64, and it doubles at exactly $$a$$ = 2, 4, 80, 236, 432, 1504. That matches the orbit.
 - **Orbit.** The return levels were computed twice, on 2026-09-23 and independently on 2026-09-24, with
   identical output to $$2\cdot10^{10}$$.
-- **Not checked.** There is no rigorous proof of the reduction, no Lean, and no referee.
+- **Not checked.** There is no rigorous proof of the reduction (superseded 2026-09-25: see the Update), no Lean, and no referee.
 
 ## Why it's hard
 
