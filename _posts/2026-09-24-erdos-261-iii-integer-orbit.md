@@ -30,6 +30,17 @@ links:
 > that no rigorous proof existed. A proof follows, and it also corrects one imprecision: for a general dyadic
 > $$x$$ there can be several orbits, not one. The numbers are unchanged.
 
+> **Retraction of the correction below (2026-09-25, later the same day).** The "Correction" below is itself
+> wrong, and the original sentence was right. Tengely, Ulas and Zygadło do treat infinite representations:
+> their Corollary 2.6 gives infinitely many rationals with at least three representations
+> $$x=\sum_{i\ge1} a_i/2^{a_i}$$, and their abstract states an infinite set of rationals with at least nine.
+> I had read only the arXiv summary, which omits this.
+> A related caveat on the count $$2^{17}$$ below: it is **not** a record in any meaningful sense. The Borwein–Loring
+> identities $$n/2^n=\sum_{n<k\le n+m} k/2^k$$ with $$n=2^{m+1}-m-2$$ have disjoint supports
+> ($$\{4\}$$ vs $$\{5,6\}$$, $$\{11\}$$ vs $$\{12,13,14\}$$, …). Placing $$k$$ of them inside a cofinite set
+> gives a rational with $$2^k$$ representations for every $$k$$. What is specific to $$x=1$$ here is only that
+> the representations are non-cofinite and pairwise differ at infinitely many places.
+
 > **Correction and update (2026-09-25).**
 > *Correction:* the post originally said Tengely, Ulas and Zygadło found "rationals with at least 3
 > representations, and infinitely many rationals with at least 9". That is wrong. Their paper
@@ -88,7 +99,7 @@ x = \sum_{a \in A} \frac{a}{2^a}, \qquad A \subseteq \mathbb{N} \text{ infinite}
 $$
 
 Borwein and Loring showed that some reals have uncountably many representations, but their examples are
-not rational. Tengely, Ulas and Zygadło ([arXiv:2008.01501](https://arxiv.org/abs/2008.01501)) found [wrong: see the Correction above]
+not rational. Tengely, Ulas and Zygadło ([arXiv:2008.01501](https://arxiv.org/abs/2008.01501)) found [this was correct; see the Retraction above]
 rationals with at least 3 representations, and infinitely many rationals with at least 9. As of
 2026-09-23 the problem is open on the site. On the forum thread it is described as open and nobody claims
 a proof, and formal-conjectures tags it `research open`.
