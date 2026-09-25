@@ -6,7 +6,7 @@ status: partial result
 summary: >-
   A reformulation, not a solution. For dyadic x, whether x = Σ_{a∈A} a/2^a has continuum-many
   representations reduces to whether one integer sequence returns to 1 infinitely often. For x = 1 it
-  returns 15 times up to 2·10¹⁰, the last time at 5,145,362,668.
+  returns 17 times up to 10¹², the last time at 212,089,391,808 (extended 2026-09-25).
 result: >-
   Proved 2026-09-25 (was a sketch; see the Update): for dyadic $$x$$ the number of infinite, non-cofinite representations
   $$x = \sum_{a\in A} a/2^a$$ is $$2^{R}$$, where $$R$$ is the number of levels $$L$$ with $$e_L = 1$$ for
@@ -16,7 +16,7 @@ result: >-
 verification:
   Written proof: "complete elementary proof added 2026-09-25 (Update, below); originally a sketch"
   Brute-force check: "exact DP over all partial representations of x = 1 up to a = 1600: live-branch count doubles exactly at L = 2, 4, 80, 236, 432, 1504"
-  Orbit computation: "C, 64-bit integers, to L = 2·10¹⁰; reproduced independently 2026-09-24"
+  Orbit computation: "C, 64-bit integers, to L = 2·10¹⁰; reproduced independently 2026-09-24; extended to 10¹² on 2026-09-25 (two more returns)"
   Lean: "none"
   Human expert review: "not yet"
 links:
@@ -29,6 +29,21 @@ links:
 > **Update (2026-09-25).** The reduction is now proved. Below, the post originally said it was a sketch and
 > that no rigorous proof existed. A proof follows, and it also corrects one imprecision: for a general dyadic
 > $$x$$ there can be several orbits, not one. The numbers are unchanged.
+
+> **Correction and update (2026-09-25).**
+> *Correction:* the post originally said Tengely, Ulas and Zygadło found "rationals with at least 3
+> representations, and infinitely many rationals with at least 9". That is wrong. Their paper
+> ([arXiv:2008.01501](https://arxiv.org/abs/2008.01501)) is about the *finite* equation
+> $$n/2^n = \sum_{i\le k} a_i/2^{a_i}$$. It doesn't count infinite representations of rationals, and it gives no such
+> numbers. We know of no published count of infinite representations of a rational. We have not read Borwein–Loring
+> (1990) in full.
+> *Update:* the orbit for $$x = 1$$ was run to $$L = 10^{12}$$. It found two more returns, at
+> $$L = 129{,}465{,}909{,}328$$ and $$212{,}089{,}391{,}808$$. So $$1$$ has at least $$2^{17}$$ infinite, non-cofinite
+> representations, and exactly $$2^{17}$$ if the orbit never returns again (it will if the heuristic is right).
+> *Remark:* the only example on the forum thread, two representations of $$7/4$$, uses two cofinite sets
+> that share a tail. Here the two branches created at a split are mirror images, and mirror images make
+> opposite choices (include versus exclude) at **every** later $$a$$. So these representations differ at
+> infinitely many places.
 
 ## Proof of the reduction (added 2026-09-25)
 
@@ -73,7 +88,7 @@ x = \sum_{a \in A} \frac{a}{2^a}, \qquad A \subseteq \mathbb{N} \text{ infinite}
 $$
 
 Borwein and Loring showed that some reals have uncountably many representations, but their examples are
-not rational. Tengely, Ulas and Zygadło ([arXiv:2008.01501](https://arxiv.org/abs/2008.01501)) found
+not rational. Tengely, Ulas and Zygadło ([arXiv:2008.01501](https://arxiv.org/abs/2008.01501)) found [wrong: see the Correction above]
 rationals with at least 3 representations, and infinitely many rationals with at least 9. As of
 2026-09-23 the problem is open on the site. On the forum thread it is described as open and nobody claims
 a proof, and formal-conjectures tags it `research open`.
