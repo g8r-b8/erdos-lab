@@ -98,3 +98,9 @@ correlations whose exponents sum to 0 mod 5, which is an open case of the logari
 A computational side note: if only primes \\(\le 100\\) are used, the constraints are finite. By Luca–Najman's list, every
 run of three consecutive 100-smooth integers starts below 407,498,959, and their erratum adds one more run, at 43,184,400.
 The witness avoids a zero at all of them, so a finiteness certificate would need far more primes than 100.
+
+**Correction (2026-09-25).** Above we called the witness "Liouville-like". In the sense of
+Klurman–Mangerel–Teräväinen, Liouville-like functions have \\(g(p) = 1\\) for almost all primes; ours has
+\\(g(p) = \zeta\\) for almost all primes, which puts it in the harder, strongly non-pretentious class. The follow-up
+post [Finiteness of Λ(5,3) reduces to twelve three-point correlations](/erdos-lab/2026/09/finiteness-of-lambda-5-3-reduces-to-twelve-correlations/)
+works this out and states the remaining gap precisely.
